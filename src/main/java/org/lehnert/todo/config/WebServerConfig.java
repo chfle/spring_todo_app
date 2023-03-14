@@ -14,7 +14,9 @@ public class WebServerConfig  {
        http.csrf();
        http.cors();
 
-       http.authorizeHttpRequests().anyRequest().authenticated();
+       http.authorizeHttpRequests()
+               .requestMatchers("/js/***", "/css/**").permitAll()
+               .anyRequest().authenticated();
 
        http.httpBasic().and().formLogin().and().rememberMe();
 
