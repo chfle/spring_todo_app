@@ -29,7 +29,7 @@ public class Users {
     @Setter
     @Getter
     @Column(nullable = false)
-    String username;
+    private String username;
 
     /**
      * @implNote should be hashed
@@ -37,15 +37,23 @@ public class Users {
     @Setter
     @Getter
     @Column(nullable = false)
-    String password;
+    private String password;
 
     @Setter
     @Getter
     @Column(nullable = false)
-    String email;
+    private String email;
 
     @Setter
     @Getter
     @Column(nullable = false)
-    Date firstLogin;
+    private Date firstLogin;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @Setter
+    @Getter
+    @JoinTable(name = "user_todo",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "todo_id"))
+    private List<Todo> todos;
 }

@@ -29,11 +29,16 @@ public class Lists {
     @Setter
     @Getter
     @Column(nullable = false)
-    String name;
+    private String name;
 
     @Setter
     @Getter
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private AccessType accessType;
+
+    @OneToMany(mappedBy = "lists")
+    @Setter
+    @Getter
+    private List<Todo> todos;
 }

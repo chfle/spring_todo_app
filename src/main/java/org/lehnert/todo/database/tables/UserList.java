@@ -8,6 +8,8 @@ import lombok.Setter;
 import org.lehnert.todo.database.compositeKeys.UserListId;
 import org.lehnert.todo.database.enums.UserTypes;
 
+import java.util.List;
+
 /**
  * M:N Relation between users and lists to support additional attributes
  */
