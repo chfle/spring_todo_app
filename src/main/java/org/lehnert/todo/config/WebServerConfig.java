@@ -18,6 +18,7 @@ public class WebServerConfig  {
        http.authorizeHttpRequests()
                .requestMatchers("/js/***", "/css/**").permitAll()
                .requestMatchers("/login").permitAll()
+               .requestMatchers("/register").permitAll()
                .anyRequest().authenticated();
 
       http.formLogin().loginPage("/login").defaultSuccessUrl("/");
