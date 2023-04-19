@@ -11,14 +11,16 @@ import org.springframework.security.web.SecurityFilterChain;
 public class WebServerConfig  {
    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-       http.csrf();
+       // TODO: login without disable
+       http.csrf().disable();
        http.cors();
 
        http.authorizeHttpRequests()
                .requestMatchers("/js/***", "/css/**").permitAll()
+               .requestMatchers("/login").permitAll()
                .anyRequest().authenticated();
 
-       http.httpBasic().and().formLogin().and().rememberMe();
+      http.formLogin().loginPage("/login").defaultSuccessUrl("/");
 
        return http.build();
    }
