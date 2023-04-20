@@ -36,7 +36,12 @@ const onRegister = () => {
             window.location.href = "/login"
         } else {
             // show error message
-            //TOdo: show error message
+            const errorMessage = document.getElementById("error-message_register");
+
+            errorMessage.hidden = false;
+            errorMessage.innerText = "User could not be saved. Please try again or change your data."
+            errorMessage.style.color = "red";
+            errorMessage.style.fontWeight = "bold";
         }
     }).catch((error) => {
         console.log(error)
