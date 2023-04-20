@@ -28,7 +28,7 @@ public class Users {
 
     @Setter
     @Getter
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String username;
 
     /**
@@ -41,7 +41,7 @@ public class Users {
 
     @Setter
     @Getter
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Setter

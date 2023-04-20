@@ -17,11 +17,11 @@ const onRegister = () => {
     } else if (email.value.length === 0 && !email.value.match(validRegex)) {
         email.setCustomValidity("Email is not valid");
         return;
+    }else if (password.value.length < 8) {
+        password.setCustomValidity("Password should have at least 8 characters")
+        return;
     }else if (password.value !== passwordRepeat.value) {
         passwordRepeat.setCustomValidity("Passwords do not match");
-        return;
-    } else if (password.value.length < 8) {
-        password.setCustomValidity("Password should have at least 8 characters")
         return;
     }
 
