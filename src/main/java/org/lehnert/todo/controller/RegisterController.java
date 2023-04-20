@@ -25,8 +25,18 @@ public class RegisterController {
     @PostMapping
     @ResponseBody
     Boolean registerNewUser(@RequestBody Map<String, Object> payload) {
-        System.out.println(payload);
-        // TODO: logic...
-        return true;
+        // get data from payload
+        try {
+            String name = (String)payload.get("name");
+            String email = (String)payload.get("email");
+            String plainPassword = (String)payload.get("password");
+
+
+
+            return true;
+        }catch (Exception exception) {
+            exception.printStackTrace();
+            return false;
+        }
     }
 }

@@ -8,11 +8,20 @@ const onRegister = () => {
     const email = document.getElementById("email")
     const password = document.getElementById("password")
     const passwordRepeat = document.getElementById("password-repeat")
-
+    const validRegex =/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     // check if passwords are matching
-    if (password.value !== passwordRepeat.value) {
+    if (name.value.length === 0){
+        name.setCustomValidity("Name should not be empty");
+        return;
+    } else if (email.value.length === 0 && !email.value.match(validRegex)) {
+        email.setCustomValidity("Email is not valid");
+        return;
+    }else if (password.value !== passwordRepeat.value) {
         passwordRepeat.setCustomValidity("Passwords do not match");
+        return;
+    } else if (password.value.length < 8) {
+        password.setCustomValidity("Password should have at least 8 characters")
         return;
     }
 

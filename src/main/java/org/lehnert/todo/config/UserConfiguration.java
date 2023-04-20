@@ -3,7 +3,7 @@ package org.lehnert.todo.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
@@ -20,16 +20,17 @@ public class UserConfiguration {
     @Bean
     UserDetailsManager userDetailsManager() {
         var inMem = new  InMemoryUserDetailsManager();
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
         inMem.createUser(
                 User.withUsername("chris")
-                        .password("chris")
+                        .password(passwordEncoder.encode("chris"))
                         .authorities("Admin")
                         .build());
 
         inMem.createUser(
                 User.withUsername("felix")
-                        .password("felix")
+                        .password(passwordEncoder.encode("felix"))
                         .authorities("User")
                         .build()
         );
@@ -42,6 +43,6 @@ public class UserConfiguration {
      */
     @Bean
     PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
+         return new BCryptPasswordEncoder();
     }
 }
