@@ -8,9 +8,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Settings</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="icon" type="image/x-icon" th:href="@{/images/fav/app.ico}">
 </head>
 <body>
+
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
@@ -54,7 +57,7 @@
         <div class="col py-3">
             <div class="card card-outline-secondary w-50">
                 <div class="card-header">
-                    <h3 class="mb-0">Delete Account</h3>
+                    <h3 id="delete-account" class="mb-0">Delete Account</h3>
                 </div>
                 <div class="card-body">
                     <p class="text-justify">Before you proceed with deleting your account,
@@ -65,7 +68,7 @@
                         preferences, and any content you have created.
                     </p>
                     <div class="mb-3">
-                        <button type="submit" class="btn btn-success btn-lg float-end">Delete Account</button>
+                        <button onclick="onDeleteAccount()" type="submit" class="btn btn-success btn-lg float-end">Delete Account</button>
                     </div>
                 </div>
             </div>
@@ -74,5 +77,6 @@
 </div>
 </div>
 </div>
+<script th:src="@{/js/settings/deleteAccount.js}"></script>
 </body>
 </html>
