@@ -21,6 +21,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+    <li><a href="#wiki">Wiki</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -71,6 +72,10 @@
 2. Build Project
    ```sh
    mvn spring-boot:run
+   
+## Wiki
+
+If you are seeking more comprehensive information about this project, including its features, functionality, and usage, as well as insights into the development process and community involvement, then you should definitely read its corresponding GitHub project wiki
   
 ## Roadmap
 
