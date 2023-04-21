@@ -32,7 +32,7 @@ public class WebServerConfig {
         http.cors();
 
         http.authorizeHttpRequests()
-                .requestMatchers("/js/***", "/css/**").permitAll()
+                .requestMatchers("/js/***", "/css/**", "/image/**").permitAll()
                 .requestMatchers("/login").permitAll()
                 .requestMatchers("/register").permitAll()
                 .anyRequest().authenticated();
