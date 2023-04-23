@@ -85,6 +85,8 @@ If you are seeking more comprehensive information about this project, including 
   - [X] Add Register Page
   - [X] Read and Add users to the Database
   - [ ] Remember users after login
+    - [x] Basic Remember-me
+    - [ ] TokenRepository
 - [X] Add Main Page
   - [ ] Add new taks
   - [ ] Collaboration Features
