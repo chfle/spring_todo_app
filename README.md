@@ -99,7 +99,7 @@ If you are seeking more comprehensive information about this project, including 
   - [ ] Task Reminders 
 - [X] Add Settings Page
   - [ ] Change Password
-  - [ ] Delete Account
+  - [x] Delete Account
 - [X] Add Profile Page
   - [ ] Add profile picture
   - [ ] Change Profile information
