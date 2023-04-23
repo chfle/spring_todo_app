@@ -2,7 +2,11 @@
  * Javascript file for deleting user
  */
 
-const onDeleteAccount = () => {
+
+/**
+ * Delete user
+ */
+const onDeleteAccount = (username) => {
     swal({
         title: "Are you sure you want to delete your account?",
         text: "Please note that deleting your account is a permanent action" +
@@ -13,9 +17,29 @@ const onDeleteAccount = () => {
         buttons: true,
         dangerMode: true,
     })
+        // if user clicked ok, then delete user
         .then((willDelete) => {
             if (willDelete) {
-               // TODO: delete account and redirect to register page
+                axios.delete("delete?username=" + username)
+                    .then(async (res) => {
+                        // redirect if everything is ok
+                        if (!res.data) {
+                            swal({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'User could not be deleted! Please try again.',
+                            })
+                        } else {
+                            location.href = "/logout"
+                        }
+
+                    }).catch((error) => {
+                    swal({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'User could not be deleted! Please try again.',
+                    })
+                })
             }
         });
 }

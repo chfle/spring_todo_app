@@ -10,6 +10,7 @@
     <title>Settings</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="icon" type="image/x-icon" th:href="@{/images/fav/app.ico}">
 </head>
 <body>
@@ -68,7 +69,7 @@
                         preferences, and any content you have created.
                     </p>
                     <div class="mb-3">
-                        <button onclick="onDeleteAccount()" type="submit" class="btn btn-success btn-lg float-end">Delete Account</button>
+                        <button th:data-name="${username}" onclick="onDeleteAccount(this.getAttribute('data-name'))" type="submit" class="btn btn-success btn-lg float-end">Delete Account</button>
                     </div>
                 </div>
             </div>
