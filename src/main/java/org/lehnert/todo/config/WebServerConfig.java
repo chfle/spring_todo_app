@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 
 /**
  * Security configuration
@@ -37,7 +38,17 @@ public class WebServerConfig {
                 .requestMatchers("/register").permitAll()
                 .anyRequest().authenticated();
 
-        http.formLogin().loginPage("/login").defaultSuccessUrl("/");
+        http
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/")
+                .and()
+                .logout()
+                .deleteCookies("JSESSIONID")
+                .and()
+                .rememberMe()
+                // TokenRepository should be used later
+                .key("someToken");
 
         return http.build();
     }
