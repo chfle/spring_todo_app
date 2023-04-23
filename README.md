@@ -88,10 +88,10 @@ If you are seeking more comprehensive information about this project, including 
     - [x] Basic Remember-me
     - [ ] TokenRepository
 - [X] Add Main Page
-  - [ ] Add new taks
+  - [ ] Add new tasks
   - [ ] Collaboration Features
     - [ ] Assign users to other tasks
-    - [ ] Assign taks to users
+    - [ ] Assign tasks to users
     - [ ] Assign multiple user to a task
     - [ ] Add comments to a task
     - [ ] Add comments to task
