@@ -28,20 +28,21 @@
 </details>
 
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 <p align="center">
 <img src="readme/images/app.png" alt="project image">
 </p>
 
- This project is used to create and manage your To-dos
- 
- Other areas of application:
- 
+This project is used to create and manage your To-dos
+
+Other areas of application:
+
 - Collaboration Features:
-  - Assign users to other tasks
-  - Assign multiple user to a task
-  - Add comments to a task
+    - Assign users to other tasks
+    - Assign multiple user to a task
+    - Add comments to a task
 - Time Tracking – Allow users to track the amount of time they spend on each task
 - Task Prioritization – Allow users to assign a priority level to each task
 - Task Reminders - Enable users to set reminders for specific tasks
@@ -54,6 +55,7 @@
 * [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
 
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
 ### Prerequisites
@@ -64,7 +66,6 @@
 
 ### Installation
 
-
 1. Clone the repo
    ```sh
    git clone git@github.com:chfle/spring_todo_app.git
@@ -72,44 +73,51 @@
 2. Build Project
    ```sh
    mvn spring-boot:run
-   
+
 ## Wiki
 
-If you are seeking more comprehensive information about this project, including its features, functionality, and usage, as well as insights into the development process and community involvement, then you should definitely read its corresponding GitHub project wiki
-  
+If you are seeking more comprehensive information about this project, including its features, functionality, and usage,
+as well as insights into the development process and community involvement, then you should definitely read its
+corresponding GitHub project wiki
+
 ## Roadmap
 
 - [X] Create repo
 - [X] Add Login / Register
-  - [X] Add Login Page
-  - [X] Add Register Page
-  - [X] Read and Add users to the Database
-  - [ ] Remember users after login
-    - [x] Basic Remember-me
-    - [ ] TokenRepository
+    - [X] Add Login Page
+      - [ ] Password Reset Email 
+      - [ ] Password Reset Page
+    - [X] Add Register Page
+        - [ ] Registration Confirmation Email
+    - [X] Read and Add users to the Database
+    - [ ] Remember users after login
+        - [x] Basic Remember-me
+        - [ ] TokenRepository
 - [X] Add Main Page
-  - [ ] Add new tasks
-  - [ ] Collaboration Features
-    - [ ] Assign users to other tasks
-    - [ ] Assign tasks to users
-    - [ ] Assign multiple user to a task
-    - [ ] Add comments to a task
-    - [ ] Add comments to task
-  - [ ] Remove tasks
-  - [ ] Time Tracking 
-  - [ ] Task Prioritization 
-  - [ ] Task Reminders 
+    - [ ] Add new tasks
+    - [ ] Collaboration Features
+        - [ ] Assign users to other tasks
+        - [ ] Assign tasks to users
+        - [ ] Assign multiple user to a task
+        - [ ] Add comments to a task
+        - [ ] Add comments to task
+    - [ ] Remove tasks
+    - [ ] Time Tracking
+    - [ ] Task Prioritization
+    - [ ] Task Reminders
 - [X] Add Settings Page
-  - [x] Change Password
-  - [x] Delete Account
+    - [x] Change Password
+    - [x] Delete Account
 - [X] Add Profile Page
-  - [ ] Add profile picture
-  - [ ] Change Profile information
-
+    - [ ] Add profile picture
+    - [ ] Change Profile information
 
 <!-- CONTACT -->
+
 ## Contact
 
-Christian Lehnert - [@ChrLehnert](https://twitter.com/ChrLehnert) - <a href="mailto:christian.lehnert.home@protonmail.com">christian.lehnert.home@protonmail.com</a>
+Christian
+Lehnert - [@ChrLehnert](https://twitter.com/ChrLehnert) - <a href="mailto:christian.lehnert.home@protonmail.com">
+christian.lehnert.home@protonmail.com</a>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
