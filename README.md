@@ -110,6 +110,8 @@ corresponding GitHub project wiki
     - [x] Delete Account
 - [X] Add Profile Page
     - [ ] Add profile picture
+      - [ ] Remove picture
+      - [ ] Upload picture 
     - [ ] Change Profile information
 
 <!-- CONTACT -->
