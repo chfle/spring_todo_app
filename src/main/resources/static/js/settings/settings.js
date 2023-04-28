@@ -10,7 +10,7 @@ const onChangePassword = (username) => {
         return;
     }
 
-    // post request
+    // put request
     axios.put("/settings/password", {
         username: username,
         passwordOld: document.getElementById("inputPasswordOld").value,
