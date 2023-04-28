@@ -112,7 +112,7 @@ corresponding GitHub project wiki
     - [ ] Add profile picture
       - [ ] Remove picture
       - [ ] Upload picture 
-    - [ ] Change Profile information
+    - [X] Change Profile information
 
 <!-- CONTACT -->
 
