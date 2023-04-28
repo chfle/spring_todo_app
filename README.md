@@ -100,7 +100,7 @@ If you are seeking more comprehensive information about this project, including 
   - [ ] Task Prioritization 
   - [ ] Task Reminders 
 - [X] Add Settings Page
-  - [ ] Change Password
+  - [x] Change Password
   - [x] Delete Account
 - [X] Add Profile Page
   - [ ] Add profile picture
