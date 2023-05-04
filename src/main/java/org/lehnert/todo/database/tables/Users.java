@@ -11,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "users")
 public class Users {
     @Id
     @Setter
@@ -56,4 +57,9 @@ public class Users {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "todo_id"))
     private List<Todo> todos;
+
+    @Setter
+    @Getter
+    @OneToOne(mappedBy = "users", cascade = CascadeType.ALL)
+    private ProfilePic profilePic;
 }
