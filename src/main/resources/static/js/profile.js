@@ -17,3 +17,14 @@ const onUpdateProfile = () => {
         console.log(error)
     })
 }
+
+/**
+ * Check if the uploaded file has the right format
+ * @param file
+ * @returns {boolean}
+ */
+function isFileImage(file) {
+    const acceptedImageTypes = ['image/gif', 'image/jpeg', 'image/png'];
+
+    return acceptedImageTypes.includes(file)
+}

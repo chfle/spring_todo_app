@@ -75,7 +75,8 @@
                                             Edit picture
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                            <li><button class="dropdown-item">Upload picture</button></li>
+                                            <input type="file"  accept="image/png, image/gif, image/jpeg" id="photo-upload" style="display: none"/>
+                                            <li><button  onclick="document.getElementById('photo-upload').click()"  class="dropdown-item">Upload picture</button></li>
                                             <li><button class="dropdown-item">Remove picture</button></li>
                                         </ul>
                                     </div>
@@ -92,5 +93,33 @@
     </div>
 </div>
 <script th:src="@{/js/profile.js}"></script>
+<script th:inline="javascript">
+    let username = /*[[${username}]]*/ null;
+
+    if (username) {
+        document.getElementById('photo-upload').addEventListener('change', function (e) {
+            console.log(e.target.files[0].type)
+            if (e.target.files.length > 0 && isFileImage(e.target.files[0].type)) {
+                // send file to the backend
+                const url = '/profile/picture?username='+username
+                const formData = new FormData();
+                formData.append("data", e.target.files[0])
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    },
+                    data: {"photo": e.target.files[0]},
+                    url
+                }
+                axios(options).then(async (res) => {
+
+                }).catch((error) => {
+                    console.log(error)
+                })
+            }
+        })
+    }
+</script>
 </body>
 </html>
