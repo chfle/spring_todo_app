@@ -67,9 +67,17 @@
                             </div>
                             <div class="mb-3">
                                 <div class="d-flex flex-column">
-                                    <img src="https://www.gravatar.com/avatar/?d=mp&s=200" class="rounded-3"
+                                    <div th:if="${hasProfilePic}">
+                                        <img th:src="@{${'/profile/pic/' + username}}" class="rounded-3"
                                          style="width: 125px;"
                                          alt="Avatar"/>
+                                    </div>
+                                    <div th:unless="${hasProfilePic}">
+                                        <img src="https://www.gravatar.com/avatar/?d=mp&s=200" class="rounded-3"
+                                             style="width: 125px;"
+                                             alt="Avatar"/>
+                                    </div>
+
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle shadow-none" style="border: none; background: none" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                             Edit picture
@@ -113,9 +121,21 @@
                     url
                 }
                 axios(options).then(async (res) => {
-
+                    if (res.data) {
+                        location.reload();
+                    } else {
+                        swal({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Could not upload image',
+                        })
+                    }
                 }).catch((error) => {
-                    console.log(error)
+                    swal({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Could not upload image',
+                    })
                 })
             }
         })
