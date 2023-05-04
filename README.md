@@ -111,7 +111,7 @@ corresponding GitHub project wiki
 - [X] Add Profile Page
     - [ ] Add profile picture
       - [ ] Remove picture
-      - [ ] Upload picture 
+      - [X] Upload picture 
     - [X] Change Profile information
 
 <!-- CONTACT -->

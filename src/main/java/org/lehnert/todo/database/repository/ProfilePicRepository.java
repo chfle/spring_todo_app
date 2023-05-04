@@ -17,5 +17,4 @@ public interface ProfilePicRepository extends CrudRepository<ProfilePic, Long> {
     @Modifying
     @Query(value = "delete from profile_pic where users_id = :userId", nativeQuery = true)
     void deleteByUserId(@Param("userId") Long userId);
-
 }

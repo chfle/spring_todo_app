@@ -82,9 +82,12 @@ public class ProfileController {
     }
 
     /**
-     * Update user profile
+     * Updates user profile information based on the authenticated user's username.
      *
-     * @param payload user profile information
+     * @param payload a map containing key-value pairs of user information to update
+     * @param authentication the authentication object containing the user's username
+     *
+     * @return a boolean indicating whether the user profile update was successful
      */
     @PutMapping
     @ResponseBody
