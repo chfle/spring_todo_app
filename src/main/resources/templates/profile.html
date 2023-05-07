@@ -85,7 +85,9 @@
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                             <input type="file"  accept="image/png, image/gif, image/jpeg" id="photo-upload" style="display: none"/>
                                             <li><button  onclick="document.getElementById('photo-upload').click()"  class="dropdown-item">Upload picture</button></li>
-                                            <li><button class="dropdown-item">Remove picture</button></li>
+                                            <li><button th:data-name="${username}"
+                                                        onclick="onDeleteProfilePic(this.getAttribute('data-name'))"
+                                                        class="dropdown-item">Remove picture</button></li>
                                         </ul>
                                     </div>
                                 </div>

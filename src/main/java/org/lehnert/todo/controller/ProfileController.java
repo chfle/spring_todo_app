@@ -155,4 +155,23 @@ public class ProfileController {
 
         return false;
     }
+
+    /**
+     * Deletes the profile picture of a user with the given username.
+     *
+     * @param username the username of the user whose profile picture is to be deleted
+     * @return true if the profile picture was deleted successfully, false otherwise
+     */
+    @DeleteMapping("/deleteProfilePic")
+    @ResponseBody
+    Boolean deleteProfilePic(@RequestParam(name = "username") String username) {
+        Optional<Users> optionalUsers = userRepository.findUserByUsername(username);
+
+        if (optionalUsers.isPresent()) {
+            profilePicRepository.deleteByUserId(optionalUsers.get().getId());
+            return true;
+        }
+
+        return false;
+    }
 }

@@ -109,8 +109,8 @@ corresponding GitHub project wiki
     - [x] Change Password
     - [x] Delete Account
 - [X] Add Profile Page
-    - [ ] Add profile picture
-      - [ ] Remove picture
+    - [x] Add profile picture
+      - [x] Remove picture
       - [X] Upload picture 
     - [X] Change Profile information
 

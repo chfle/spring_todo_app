@@ -28,3 +28,44 @@ function isFileImage(file) {
 
     return acceptedImageTypes.includes(file)
 }
+
+/**
+ * delete profile pic by username
+ * @param username username of the user
+ */
+const onDeleteProfilePic = (username) => {
+    // ask user if he is sure
+    swal({
+        title: "Are you sure you want to delete your profile pic?",
+        text: "Deleting your Profile pic will resolve in removing it permanently",
+        icon: "warning",
+        width: 600,
+        buttons: true,
+        dangerMode: true,
+    })
+        // if user clicked ok, then delete user
+        .then((willDelete) => {
+            if (willDelete) {
+                axios.delete("/profile/deleteProfilePic?username=" + username)
+                    .then(async (res) => {
+                        // redirect if everything is ok
+                        if (!res.data) {
+                            swal({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'Profile pic could not be deleted! Please try again.',
+                            })
+                        } else {
+                            location.reload();
+                        }
+
+                    }).catch((error) => {
+                    swal({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Profile pic could not be deleted! Please try again.',
+                    })
+                })
+            }
+        });
+}
