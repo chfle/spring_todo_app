@@ -3,6 +3,8 @@ package org.lehnert.todo.controller;
 import lombok.AllArgsConstructor;
 import org.lehnert.todo.database.repository.UserRepository;
 import org.lehnert.todo.database.tables.Users;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,9 +22,9 @@ public class RegisterController {
     private final UserRepository userRepository;
 
     private final BCryptPasswordEncoder passwordEncoder  = new BCryptPasswordEncoder();
+    private static final Logger log = LoggerFactory.getLogger(RegisterController.class);
     /**
      * Get register page
-     * @return
      */
     @GetMapping
     String getRegister() {
@@ -56,7 +58,7 @@ public class RegisterController {
                 return true;
             }
         }catch (Exception exception) {
-            exception.printStackTrace();
+            log.error(exception.getMessage());
             return false;
         }
 

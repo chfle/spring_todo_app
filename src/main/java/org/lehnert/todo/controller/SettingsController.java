@@ -3,6 +3,8 @@ package org.lehnert.todo.controller;
 import lombok.AllArgsConstructor;
 import org.lehnert.todo.database.repository.UserRepository;
 import org.lehnert.todo.database.tables.Users;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,6 +21,7 @@ import java.util.Optional;
 public class SettingsController {
     @Autowired
     private final UserRepository userRepository;
+    private static final Logger log = LoggerFactory.getLogger(SettingsController.class);
 
     /**
      * Get settings page
@@ -49,7 +52,7 @@ public class SettingsController {
                 }
             }
         }catch (Exception exception) {
-            exception.printStackTrace();
+           log.error(exception.getMessage());
         }
         return false;
     }

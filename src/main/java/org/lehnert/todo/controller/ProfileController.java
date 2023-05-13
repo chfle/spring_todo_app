@@ -6,6 +6,8 @@ import org.lehnert.todo.database.repository.UserRepository;
 import org.lehnert.todo.database.tables.ProfilePic;
 import org.lehnert.todo.database.tables.Users;
 import org.lehnert.todo.helper.utils.ImageUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -31,6 +33,8 @@ public class ProfileController {
 
     @Autowired
     private final ProfilePicRepository profilePicRepository;
+
+    private static final Logger log = LoggerFactory.getLogger(ProfileController.class);
 
     /**
      * Get user profile page
@@ -78,6 +82,7 @@ public class ProfileController {
             }
         }
 
+        log.error("Profile pic for user "+ username + " could not be found!");
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
@@ -114,7 +119,7 @@ public class ProfileController {
                userRepository.save(user);
                return true;
            }catch (Exception exception) {
-               exception.printStackTrace();
+               log.error(exception.getMessage());
                return false;
            }
         }
@@ -150,7 +155,9 @@ public class ProfileController {
                 // save
                 profilePicRepository.save(profilePic);
                 return true;
-            }catch (Exception ignore) {}
+            }catch (Exception exception) {
+                log.error(exception.getMessage());
+            }
         }
 
         return false;
