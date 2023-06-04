@@ -94,7 +94,10 @@ corresponding GitHub project wiki
         - [x] Basic Remember-me
         - [ ] TokenRepository
 - [X] Add Main Page
-    - [ ] show icon if list is public or private
+    - [x] Show lists
+      - [ ] Show icon if list is public or private
+      - [ ] Make the list scrollable after x list items
+      - [ ] Edit List (Name, Permission, etc)
     - [ ] Add new tasks
     - [ ] Collaboration Features
         - [ ] Assign users to other tasks
