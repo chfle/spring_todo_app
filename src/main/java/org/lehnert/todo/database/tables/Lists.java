@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.lehnert.todo.database.enums.AccessTypes;
 
 import java.util.List;
 
@@ -21,6 +22,11 @@ public class Lists {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Setter
+    @Getter
+    @Column(nullable = false)
+    private Long owner;
+
     @ManyToMany(mappedBy = "lists")
     @Setter
     @Getter
@@ -35,7 +41,7 @@ public class Lists {
     @Getter
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private AccessType accessType;
+    private AccessTypes accessType;
 
     @OneToMany(mappedBy = "lists")
     @Setter
