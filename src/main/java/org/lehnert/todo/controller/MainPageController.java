@@ -37,6 +37,15 @@ public class MainPageController {
     String getMainPage(Model model, Authentication authentication) {
         model.addAttribute("username", authentication.getName());
 
+        Optional<Users> user = userRepository.findUserByUsername(authentication.getName());
+
+        if (user.isPresent()) {
+            // find all lists
+            Iterable<Lists> lists = listRepository.findAllListsRelatedToMe(user.get().getId());
+
+            model.addAttribute("lists", lists);
+        }
+
         return "mainPage";
     }
 

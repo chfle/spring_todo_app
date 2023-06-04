@@ -94,6 +94,7 @@ corresponding GitHub project wiki
         - [x] Basic Remember-me
         - [ ] TokenRepository
 - [X] Add Main Page
+    - [ ] show icon if list is public or private
     - [ ] Add new tasks
     - [ ] Collaboration Features
         - [ ] Assign users to other tasks
