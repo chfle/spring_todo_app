@@ -9,6 +9,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>Home</title>
     <link rel="icon" type="image/x-icon" th:src="@{/images/fav/app.ico}">
 </head>
@@ -59,11 +61,20 @@
                     <span class="fs-5 d-none d-sm-inline">Spring Todo App</span>
                 </a>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu" >
-                    <li class="nav-item" th:each="list: ${lists}">
+                    <li class="nav-item d-flex align-items-center" th:each="list: ${lists}">
                         <a href="#" class="nav-link align-middle px-0">
-                            <i class="fs-4 bi-house"></i> <span th:text="${list.getName()}" class="ms-1 d-none d-sm-inline"></span>
+                            <i class="fs-4 bi-house"></i>
+                            <span class="ms-1 d-none d-sm-inline">
+            [(${list.getName()})]
+            <span th:text="${list.getAccessType().toString().toLowerCase()}" class="badge"></span>
+        </span>
                         </a>
+                        <button style="display: inline-block; font-size: 12px"
+                                class="btn btn-success btn-sm rounded-0 ms-2" type="button" data-toggle="tooltip" data-placement="top" title="Edit">
+                            <i class="fa fa-edit"></i>
+                        </button>
                     </li>
+
                 </ul>
                 <hr>
                 <!-- User Dropdown -->
