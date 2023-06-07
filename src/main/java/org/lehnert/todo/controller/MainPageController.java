@@ -1,16 +1,16 @@
 package org.lehnert.todo.controller;
 
-import jakarta.persistence.AccessType;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import org.lehnert.todo.database.enums.AccessTypes;
+import org.lehnert.todo.database.interfaces.IUsernameAndId;
 import org.lehnert.todo.database.repository.ListRepository;
 import org.lehnert.todo.database.repository.UserRepository;
 import org.lehnert.todo.database.tables.Lists;
-import org.lehnert.todo.database.tables.UserList;
 import org.lehnert.todo.database.tables.Users;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -79,5 +79,26 @@ public class MainPageController {
         }
 
         return false;
+    }
+
+    /**
+     * Get All usernames by list and owner
+     */
+    @ResponseBody
+    @GetMapping("/usernames")
+    String getUsernamesByList(@RequestParam(name = "listId") Long listId, Authentication authentication) throws JsonProcessingException {
+        Optional<Users> optionalOwner = userRepository.findUserByUsername(authentication.getName());
+
+        if (optionalOwner.isPresent()) {
+            Iterable<IUsernameAndId> usernames = listRepository.getAllUsernamesByListAndOwner(listId, optionalOwner.get().getId());
+
+            return new ObjectMapper().writer().
+                    withDefaultPrettyPrinter()
+                    .writeValueAsString(usernames);
+        }
+
+        return new ObjectMapper().writer().
+                withDefaultPrettyPrinter()
+                .writeValueAsString(List.of());
     }
 }

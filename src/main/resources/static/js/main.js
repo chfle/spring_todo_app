@@ -6,7 +6,6 @@ const addNewList = () => {
     const errorMessage = document.getElementById("error-message-new-list");
 
 
-
     if (listName.value.length !== 0) {
         const radioButtons = document.querySelectorAll('input[name="inlineRadioOptions"]');
 
@@ -60,7 +59,7 @@ const addNewList = () => {
 /**
  * Add modal body for the edit list modal
  */
-const editListButtonBody = (listName, access, userId, listUserID) => {
+const editListButtonBody = (listName, access, userId, listUserID, listId) => {
     let modalBody = document.getElementById("modal-body-edit-list");
 
     // user can edit list
@@ -71,7 +70,7 @@ const editListButtonBody = (listName, access, userId, listUserID) => {
                   <label for="listName" style="display: none">New List</label>
                   <input type="text" class="form-control" id="listName" placeholder="List name" value="${listName}">
         </div>
-        <div class="form-group">
+        <div class="form-group mt-2">
                    <div class="form-check form-check-inline">
                          <input  class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1-edit-list" value="PRIVATE" />
                          <label class="form-check-label" for="inlineRadio1-edit-list">private</label>
@@ -82,11 +81,45 @@ const editListButtonBody = (listName, access, userId, listUserID) => {
                    </div>
         </div>
     `
-
         if (access === 'private') {
             document.getElementById("inlineRadio1-edit-list").checked = true;
             document.getElementById("inlineRadio2-edit-list").checked = false;
         } else if (access === 'public') {
+            axios.get("/usernames?listId=" + listId).then((response) => {
+                modalBody.innerHTML += `
+                <div class="form-group mt-2">
+            <table class="table manage-candidates-top mb-0">
+             <thead>
+              <tr>
+                <th>Username</th>
+                <th class="action text-right">Delete</th>
+              </tr>
+            </thead>
+            <tbody id="user-table-body">
+            </tbody>
+            </table>
+                </div>
+                `
+                for (let userdata of response.data) {
+                    document.getElementById("user-table-body").innerHTML += `
+                                 <tr class="candidates-list">
+                <td class="title">
+                  <div class="candidate-list-details">
+                    <div class="candidate-list-info">
+                      <div class="candidate-list-title">
+                        <p class="mb-0">${userdata.username}</p>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                    <button class="btn btn-success btn-sm rounded-0 ms-2"> <i class="fa fa-trash"></i></button>
+                </td>
+              </tr>
+`
+                }
+            })
+
             document.getElementById("inlineRadio1-edit-list").checked = false;
             document.getElementById("inlineRadio2-edit-list").checked = true;
         }

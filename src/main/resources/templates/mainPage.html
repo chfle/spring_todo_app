@@ -88,7 +88,7 @@
         </span>
                         </a>
                         <button onclick="editListButtonBody(this.getAttribute('data-name'), this.getAttribute('data-access'),
-                                this.getAttribute('data-userId'), this.getAttribute('data-listUserId'))"
+                                this.getAttribute('data-userId'), this.getAttribute('data-listUserId'), this.getAttribute('data-listId'))"
                                 data-target="#editListModal"
                                 style="display: inline-block; font-size: 12px"
                                 class="btn btn-success btn-sm rounded-0 ms-2" type="button" data-toggle="modal"
@@ -96,6 +96,7 @@
                                 th:data-access="${list.getAccessType().toString().toLowerCase()}"
                                 th:data-userId="${userId}"
                                 th:data-listUserId="${list.getOwner()}"
+                                th:data-listId="${list.getId()}"
                                 title="Edit">
                             <i class="fa fa-edit"></i>
                         </button>
