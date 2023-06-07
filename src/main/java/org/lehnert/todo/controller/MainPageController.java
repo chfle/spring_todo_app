@@ -44,6 +44,7 @@ public class MainPageController {
             Iterable<Lists> lists = listRepository.findAllListsRelatedToMe(user.get().getId());
 
             model.addAttribute("lists", lists);
+            model.addAttribute("userId", user.get().getId());
         }
 
         return "mainPage";

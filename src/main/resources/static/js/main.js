@@ -56,3 +56,46 @@ const addNewList = () => {
     errorMessage.style.fontWeight = "bold";
 
 }
+
+/**
+ * Add modal body for the edit list modal
+ */
+const editListButtonBody = (listName, access, userId, listUserID) => {
+    let modalBody = document.getElementById("modal-body-edit-list");
+
+    // user can edit list
+    if (userId === listUserID) {
+
+        modalBody.innerHTML = `
+        <div class="form-group">
+                  <label for="listName" style="display: none">New List</label>
+                  <input type="text" class="form-control" id="listName" placeholder="List name" value="${listName}">
+        </div>
+        <div class="form-group">
+                   <div class="form-check form-check-inline">
+                         <input  class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1-edit-list" value="PRIVATE" />
+                         <label class="form-check-label" for="inlineRadio1-edit-list">private</label>
+                   </div>
+                   <div class="form-check form-check-inline">
+                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2-edit-list" value="PUBLIC" />
+                         <label class="form-check-label" for="inlineRadio2-edit-list">public</label>
+                   </div>
+        </div>
+    `
+
+        if (access === 'private') {
+            document.getElementById("inlineRadio1-edit-list").checked = true;
+            document.getElementById("inlineRadio2-edit-list").checked = false;
+        } else if (access === 'public') {
+            document.getElementById("inlineRadio1-edit-list").checked = false;
+            document.getElementById("inlineRadio2-edit-list").checked = true;
+        }
+
+    } else {
+        modalBody.innerHTML = `
+            <p style="font-weight: bold">You are not the owner of this list.</p>
+        `
+
+        document.getElementById('save-edit-list').disabled = true;
+    }
+}
